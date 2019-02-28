@@ -3,6 +3,8 @@ package fr.laerce.thymesecurity.security.dao;
 import fr.laerce.thymesecurity.security.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 /**
  * Projet thyme-security
  * Pour LAERCE SAS
@@ -13,4 +15,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface UserDao extends JpaRepository<User, Long>{
     User findByName(String name);
+    public List<User> findAll();
 }
