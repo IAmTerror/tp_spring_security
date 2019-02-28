@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>Recovery</title>
+</head>
+<body>
+
+<form action="/action_page.php">
+    <div sec:authorize="hasAuthority('USER')">Old password :</div><br>
+    <input sec:authorize="hasAuthority('USER')" type="text" name="old" value="">
+    <br>
+    New password :<br>
+    <input type="text" name="new" value="">
+    <br>
+    Confirm new password :<br>
+    <input type="text" name="confirm" value="">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/home").permitAll()
+                    .antMatchers("/", "/home", "/recovery").permitAll()
                     .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                     .anyRequest().authenticated()
                     .and()
@@ -65,7 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("recup")
                 .password("recup")
                 .roles("ADMIN","USER")
-                .authorities("WITHDRAW","DEPOSIT");
+                .authorities("WITHDRAW","DEPOSIT", "ADMIN");
         auth.userDetailsService(jpaUserDetailsService).passwordEncoder(bCryptPasswordEncoder());
     }
 
