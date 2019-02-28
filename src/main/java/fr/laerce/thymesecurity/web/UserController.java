@@ -7,9 +7,7 @@ import fr.laerce.thymesecurity.security.service.JpaUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserController {
@@ -32,5 +30,15 @@ public class UserController {
         model.addAttribute("user", jpaUserService.findByUserId(id));
         model.addAttribute("idUser", id);
         return "recovery";
+    }
+
+    @GetMapping("modPasswordByAdmin")
+    public String modPasswordByAdmin(@RequestParam("id") long id, @RequestParam("newPassword") String newPassword, @RequestParam("confirmPassword") String confirmPassword) {
+        if (confirmPassword.equals(newPassword)) {
+            User user = jpaUserService.findByUserId(id);
+            user.setPassword(newPassword);
+            jpaUserService.save(user);
+        }
+        return "redirect:/admin/users";
     }
 }

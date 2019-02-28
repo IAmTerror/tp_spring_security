@@ -15,5 +15,8 @@ public class ThymeSecurityApplication {
 		// a part ça, il est acessible à tous
 		// TODO : creer une liste d'utilisateurs
 		// elle n'est acessible qu'à l'administrateur
+		// ---> TOut ça est plus ou moins terminé
+
+		// TODO : maintenant que la modif de mot de passe fonctionne pour l'admin, faire de même pour les Users
 	}
 }
