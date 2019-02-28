@@ -6,10 +6,22 @@
 </head>
 <body>
 
-<form action="/action_page.php">
-    <div sec:authorize="hasAuthority('USER')">Old password :</div><br>
-    <input sec:authorize="hasAuthority('USER')" type="text" name="old" value="">
+<form sec:authorize="hasAuthority('USER')" action="/action_page.php">
+    <div >Old password :</div><br>
+    <!--<input hidden="hidden" th:value="${idUser}">-->
+    <input type="text" name="old" value="">
     <br>
+    New password :<br>
+    <input type="text" name="new" value="">
+    <br>
+    Confirm new password :<br>
+    <input type="text" name="confirm" value="">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<form sec:authorize="hasAuthority('ADMIN')" action="/action_page.php">
+    <!--<input hidden="hidden" th:value="${idUser}">-->
     New password :<br>
     <input type="text" name="new" value="">
     <br>

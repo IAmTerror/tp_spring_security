@@ -15,5 +15,6 @@ import java.util.List;
  */
 public interface UserDao extends JpaRepository<User, Long>{
     User findByName(String name);
-    public List<User> findAll();
+    List<User> findAll();
+    User findById(long id);
 }
