@@ -6,9 +6,9 @@
 </head>
 <body>
 
-<form sec:authorize="hasAuthority('USER')" action="/modPasswordByUser" method="get">
-    <div >Old password :</div><br>
+<form sec:authorize="hasAuthority('ADMIN')==false" action="/modPasswordByUser" method="get">
     <input name="id" hidden="hidden" th:value="${idUser}">
+    <div >Old password :</div><br>
     <input type="password" name="oldPassword" value="">
     <br>
     New password :<br>
