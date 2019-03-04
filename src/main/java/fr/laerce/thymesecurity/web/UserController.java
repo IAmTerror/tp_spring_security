@@ -10,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
-
 @Controller
 public class UserController {
 
@@ -20,9 +18,6 @@ public class UserController {
 
     @Autowired
     JpaUserService jpaUserService;
-
-    @Autowired
-    private HttpSession httpSession;
 
     @GetMapping("admin/users")
     public String list(Model model){
