@@ -5,6 +5,7 @@ import fr.laerce.thymesecurity.security.dao.UserDao;
 import fr.laerce.thymesecurity.security.domain.User;
 import fr.laerce.thymesecurity.security.service.JpaUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,7 @@ public class UserController {
     JpaUserService jpaUserService;
 
     @GetMapping("admin/users")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public String list(Model model){
         Iterable<User> users = jpaUserService.findAllUsers();
         model.addAttribute("users", users);

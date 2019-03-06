@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ThymeSecurityApplication {
 
 	public static void main(String[] args) {
+		// TODO : faire joujou avec csrf pour passer les méthodes GET en méthodes POST
 		SpringApplication.run(ThymeSecurityApplication.class, args);
 	}
 }
